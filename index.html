@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=640">
+
+    <link rel="stylesheet" href="stylesheets/core.css" media="screen">
+    <link rel="stylesheet" href="stylesheets/mobile.css" media="handheld, only screen and (max-device-width:640px)">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
+
+    <script type="text/javascript" src="javascripts/modernizr.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="javascripts/headsmart.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $('#main_content').headsmart()
+      })
+    </script>
+    <title>Pythonx学习笔记 by pyy1128</title>
+  </head>
+
+  <body>
+    <a id="forkme_banner" href="https://github.com/pyy1128/python-">View on GitHub</a>
+    <div class="shell">
+
+      <header>
+        <span class="ribbon-outer">
+          <span class="ribbon-inner">
+            <h1>Pythonx学习笔记</h1>
+            <h2>基础</h2>
+          </span>
+          <span class="left-tail"></span>
+          <span class="right-tail"></span>
+        </span>
+      </header>
+
+      <section id="downloads">
+        <span class="inner">
+          <a href="https://github.com/pyy1128/python-/zipball/master" class="zip"><em>download</em> .ZIP</a><a href="https://github.com/pyy1128/python-/tarball/master" class="tgz"><em>download</em> .TGZ</a>
+        </span>
+      </section>
+
+
+      <span class="banner-fix"></span>
+
+
+      <section id="main_content">
+        <h1>
+<a id="一数据格式转换" class="anchor" href="#%E4%B8%80%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F%E8%BD%AC%E6%8D%A2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>一、数据格式转换</h1>
+
+<ul>
+<li><strong>更改数据输出格式</strong></li>
+</ul>
+
+<pre><code>events2['thour']=map(lambda x: '%02.f:00-%02.f:59 ' % (x,x),events1.thour)
+</code></pre>
+
+<ul>
+<li><strong>小数按照百分比输出</strong></li>
+</ul>
+
+<pre><code>print '%.2f %%'%(count_prop[0]*100)
+</code></pre>
+
+<h1>
+<a id="二列表操作" class="anchor" href="#%E4%BA%8C%E5%88%97%E8%A1%A8%E6%93%8D%E4%BD%9C" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>二、列表操作</h1>
+
+<ul>
+<li><strong>list.index(value)返回的是等于value的第一索引值</strong></li>
+<li><strong>取值</strong></li>
+</ul>
+
+<pre><code>size=[2,3,4]
+print size[:-2] ##输出2。表示输出从开始到倒数位置为2之间的所有数。最后一个数位置为0。
+</code></pre>
+
+<ul>
+<li><strong>两列表一对一组合</strong></li>
+</ul>
+
+<pre><code>x=zip(size[1:],size[:-1])
+print x
+</code></pre>
+
+<ul>
+<li><strong>指定位置插入元素</strong></li>
+</ul>
+
+<pre><code>list.insert(index, obj)
+</code></pre>
+
+<ul>
+<li><strong>判断列表所有元素满足一个条件时，返回TRUE</strong></li>
+</ul>
+
+<pre><code>zz1=all(re.search(r'^\S[\s\S]*', y) for y in zz)
+</code></pre>
+
+<ul>
+<li><strong>map：可对列表中的每一个元素应用函数</strong></li>
+</ul>
+
+<pre><code>idx=map(lambda x:x+1,idx)
+</code></pre>
+
+<ul>
+<li><strong>两列表应用函数</strong></li>
+</ul>
+
+<pre><code>for (v,k) in zip(x,y):
+    x=''.join([v,k])
+    z.append(x)
+</code></pre>
+
+<ul>
+<li><strong>判断是否含有某个元素</strong></li>
+</ul>
+
+<pre><code>print None in m
+</code></pre>
+
+<ul>
+<li><strong>去掉某个特定值</strong></li>
+</ul>
+
+<pre><code>y.remove('其他')
+</code></pre>
+
+<ul>
+<li><strong>列表元素替换</strong></li>
+</ul>
+
+<pre><code>out_list=[m1[0] if v==m[0] else v for v in out_list]
+</code></pre>
+
+<ul>
+<li><strong>对列表中多个值的替换</strong></li>
+</ul>
+
+<pre><code>m=['归属于母公司股东的综合收益总额','归属于母公司股东的净利润','归属于母公司股东的其他综合收益的税后净额']
+m1=['归属于母公司所有者的综合收益总额','归属于母公司所有者的净利润','归属于母公司所有者的其他综合收益的税后净额']
+out_list=[m1[m.index(v)] if v in m else v for v in out_list]
+</code></pre>
+
+<h1>
+<a id="二数据框操作" class="anchor" href="#%E4%BA%8C%E6%95%B0%E6%8D%AE%E6%A1%86%E6%93%8D%E4%BD%9C" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>二、数据框操作</h1>
+
+<ul>
+<li><strong>查看数据框前几行</strong></li>
+</ul>
+
+<pre><code>print phone.head(n=10)
+</code></pre>
+
+<ul>
+<li><strong>在已有dataframe中添加新列</strong></li>
+</ul>
+
+<pre><code>x1.loc[:,'group']=np.nan
+</code></pre>
+
+<ul>
+<li><strong>不同dataframe的行合并rbind</strong></li>
+</ul>
+
+<pre><code>pd.concat([x,x1],ignore_index=True)
+</code></pre>
+
+<ul>
+<li><strong>取dataframe中的前指定行或是指定列</strong></li>
+</ul>
+
+<pre><code>x1=gender_age_test.ix[0:5,].copy(deep=True)
+</code></pre>
+
+<ul>
+<li><strong>返回数据框dataframe的维度</strong></li>
+</ul>
+
+<pre><code>print train_test.shape
+</code></pre>
+
+<ul>
+<li><strong>判断dataframe中某些特征是否重复</strong></li>
+</ul>
+
+<pre><code>x1=x.duplicated(['device_id'])
+</code></pre>
+
+<ul>
+<li><strong>去除dataframe中重复行</strong></li>
+</ul>
+
+<pre><code>x1=x.drop_duplicates()
+</code></pre>
+
+<ul>
+<li><strong>返回Series满足特定条件时的索引</strong></li>
+</ul>
+
+<pre><code>x1[x1==True].index[0:10]
+</code></pre>
+
+<ul>
+<li>
+<strong>求交集、并集</strong>。。</li>
+</ul>
+
+<pre><code>print len(set(x).intersection(set(x1)))
+print len(set(x).union(set(x1)))
+print len(set(x).difference(set(x1)))
+</code></pre>
+
+<ul>
+<li><strong>集合转成列表</strong></li>
+</ul>
+
+<pre><code>list()
+</code></pre>
+
+<ul>
+<li>查看方法的帮助文档：</li>
+</ul>
+
+<pre><code>x=train_phone.phone_brand.value_counts()
+print help(pd.value_counts)
+</code></pre>
+
+<ul>
+<li><strong>数组和Series转换</strong></li>
+</ul>
+
+<pre><code>x2=np.array(x1)
+x3=pd.Series(np.cumsum(x2),index=x.index)
+</code></pre>
+
+<ul>
+<li><strong>数据框dataframe满足条件的某些行</strong></li>
+</ul>
+
+<pre><code>print train_phone1[train_phone1.gender=='M']
+xiaomi=train_phone1[train_phone1.phone_brand.isin(name)]
+</code></pre>
+
+<ul>
+<li><strong>数据框dataframe替换某些列的值</strong></li>
+</ul>
+
+<pre><code>train_phone1.ix[train_phone1.phone_brand.isin(name)==False,'phone_brand']='Others'
+</code></pre>
+
+<ul>
+<li><strong>数据框dataframe求行和</strong></li>
+</ul>
+
+<pre><code>data.sum(axis = 1)
+</code></pre>
+
+<ul>
+<li><strong>数据框dataframe求行比例</strong></li>
+</ul>
+
+<pre><code>x= data.div(data.sum(axis = 1), axis = 0)
+</code></pre>
+
+<ul>
+<li><strong>使用方法时，返回None，因为方法不能赋值</strong></li>
+</ul>
+
+<pre><code>name1.append("Others")
+</code></pre>
+
+<ul>
+<li><strong>数据框纵向合并</strong></li>
+</ul>
+
+<pre><code>train.append(test,ignore_index=True)
+</code></pre>
+
+<ul>
+<li><strong>修改数据框列名</strong></li>
+</ul>
+
+<pre><code>df_test.rename(columns={'index':'device_id'},inplace=True)
+</code></pre>
+
+<ul>
+<li><strong>数据框输出</strong></li>
+</ul>
+
+<pre><code>import sys
+reload(sys)
+sys.setdefaultencoding('utf8')
+table_list.to_excel('E:\\pythonWorkSpace\\financial report\\hhh.xlsx', sheet_name='Sheet1',index=False,encoding='utf-8')
+</code></pre>
+
+<ul>
+<li><strong>数据框增加一行series</strong></li>
+</ul>
+
+<pre><code>df.loc['df']=series
+df_table.loc[i]=list_1
+</code></pre>
+
+<pre><code>one_table_df=pd.DataFrame(columns=titles)
+one_table_df = one_table_df.append(one_series,ignore_index=True)
+print one_table_df
+</code></pre>
+
+<h1>
+<a id="三series操作" class="anchor" href="#%E4%B8%89series%E6%93%8D%E4%BD%9C" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>三、Series操作</h1>
+
+<ul>
+<li><strong>判断某个Series是否在另一个Series中</strong></li>
+</ul>
+
+<pre><code>test.ix[:,'device_id'].isin(events.ix[:,'device_id'])
+</code></pre>
+
+<ul>
+<li><strong>合并两个series，形成dataframe</strong></li>
+</ul>
+
+<pre><code>pd.concat([s1, s2], axis=1)
+</code></pre>
+
+<ul>
+<li>**</li>
+<li><strong>增加元素</strong></li>
+</ul>
+
+<pre><code>Series.set_value('公司',5)
+</code></pre>
+
+<ul>
+<li><strong>series增加元素时，如果之前没有元素，则text会变成float格式</strong></li>
+</ul>
+
+<pre><code>one_series['起始日期'] = qsrq_dict[gglb_dict_sub[x_term]]
+</code></pre>
+
+<h1>
+<a id="四图表制作" class="anchor" href="#%E5%9B%9B%E5%9B%BE%E8%A1%A8%E5%88%B6%E4%BD%9C" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>四、图表制作</h1>
+
+<ul>
+<li><strong>画条形图</strong></li>
+</ul>
+
+<pre><code>p=train_phone.group.value_counts().sort_index().plot(kind='bar',figsize=(15,6),rot=0)
+_=p.set_xlabel('Group'),p.set_ylabel('Count')
+plt.show()
+</code></pre>
+
+<ul>
+<li><strong>改变x轴刻度、旋转（倾斜）刻度、改变刻度字体大小</strong></li>
+</ul>
+
+<pre><code>plt.xticks([1, 2, 3], ['mon', 'tue', 'wed'],rotation=45)
+plt.xticks(rotation=45,fontsize=7.5)
+</code></pre>
+
+<h1>
+<a id="五其它" class="anchor" href="#%E4%BA%94%E5%85%B6%E5%AE%83" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>五、其它</h1>
+
+<ul>
+<li><strong>读写文件，并设置encoding</strong></li>
+</ul>
+
+<pre><code>f = open('test', 'w')
+f.write(foo.encode('utf8'))
+f.close()
+</code></pre>
+
+<pre><code>np.savetxt(r'test.txt',train_IsInvalid_df, fmt='%s\t%s\t%s')
+</code></pre>
+
+<ul>
+<li><strong>读取某个文件夹所有的文件名</strong></li>
+</ul>
+
+<pre><code>import glob
+path =r'E:\pythonWorkSpace\xiaolongren\data_to_parse'
+filenames = glob.glob(path+'\*')
+</code></pre>
+
+<p>遇到编码问题</p>
+
+<pre><code>path =r'E:\pythonWorkSpace\financial report\samples\try'
+filenames = glob.glob(path+'\*'+'.xml')
+print filenames[0].decode('gbk').encode('utf-8')
+</code></pre>
+
+<ul>
+<li>
+<strong>_future_模块</strong>
+这个模块可以导入python更高级版本的函数~~可以用2.x版本的python去测试高级一点版本的3.x版本的python。</li>
+<li><strong>构造类</strong></li>
+</ul>
+
+<pre><code>#类定义  
+    class people:  
+        #定义基本属性  
+        name = ''  
+        age = 0  
+        #定义私有属性,私有属性在类外部无法直接进行访问  
+        __weight = 0  
+        #定义构造方法  
+        def __init__(self,n,a,w):  
+            self.name = n  
+            self.age = a  
+            self.__weight = w  
+        def speak(self):  
+            print("%s is speaking: I am %d years old" %(self.name,self.age))  
+
+
+    p = people('tom',10,30)  
+    p.speak()
+</code></pre>
+
+<ul>
+<li>
+<strong>编码问题encoding</strong>
+<a href="https://docs.python.org/3/howto/unicode.html">https://docs.python.org/3/howto/unicode.html</a>
+<a href="http://stackoverflow.com/questions/222386/what-do-i-need-to-know-about-unicode">http://stackoverflow.com/questions/222386/what-do-i-need-to-know-about-unicode</a> 
+
+<ul>
+<li>将以unicode编码的中文字符串进行转码</li>
+</ul>
+</li>
+</ul>
+
+<pre><code>list3 = unicode(lines2[0], 'unicode-escape') 
+</code></pre>
+
+<ul>
+<li><strong>取pdf某些页面</strong></li>
+</ul>
+
+<pre><code>from pyPdf import PdfFileWriter, PdfFileReader
+
+output = PdfFileWriter()
+input1 = PdfFileReader(file("600639_2015_n.pdf", "rb"))
+
+# print the title of document1.pdf
+print "title = %s" % (input1.getDocumentInfo().title)
+
+# add page 1 from input1 to output document, unchanged
+output.addPage(input1.getPage(50))
+
+# add page 2 from input1, but rotated clockwise 90 degrees
+output.addPage(input1.getPage(1).rotateClockwise(90))
+
+# add page 3 from input1, rotated the other way:
+output.addPage(input1.getPage(2).rotateCounterClockwise(90))
+# alt: output.addPage(input1.getPage(2).rotateClockwise(270))
+
+# add page 4 from input1, but first add a watermark from another pdf:
+page4 = input1.getPage(3)
+watermark = PdfFileReader(file("600876_2015_n.pdf", "rb"))
+page4.mergePage(watermark.getPage(0))
+
+# add page 5 from input1, but crop it to half size:
+page5 = input1.getPage(4)
+page5.mediaBox.upperRight = (
+    page5.mediaBox.getUpperRight_x() / 2,
+    page5.mediaBox.getUpperRight_y() / 2
+)
+output.addPage(page5)
+
+# print how many pages input1 has:
+print "document1.pdf has %s pages." % input1.getNumPages()
+
+# finally, write "output" to document-output.pdf
+outputStream = file("document-output.pdf", "wb")
+output.write(outputStream)
+outputStream.close()
+</code></pre>
+
+<ul>
+<li><strong>定义函数时，里面用到的变量都得事先定义，如x=(),list_text=[]</strong></li>
+<li><strong>调用另外一个.py文件的函数</strong></li>
+</ul>
+
+<pre><code>from function import *
+</code></pre>
+
+<ul>
+<li><strong>读取根目录下所有的txt文件</strong></li>
+</ul>
+
+<pre><code>path =r'E:\pythonWorkSpace\financial report\samples\sh'
+filenames = glob.glob(path+'\*'+'.txt')
+</code></pre>
+
+<ul>
+<li><strong>使用BeautifulSoup 解析中文乱码</strong></li>
+</ul>
+
+<pre><code>soup = BeautifulSoup(email_id_example,from_encoding='utf8')
+</code></pre>
+
+<ul>
+<li><strong>忽略警告</strong></li>
+</ul>
+
+<pre><code>import warnings
+warnings.filterwarnings("ignore")
+</code></pre>
+
+<ul>
+<li><strong>打开中文文件名的文件乱码</strong></li>
+</ul>
+
+<pre><code>a='E:\\pythonWorkSpace\\financial report\\samples\\try\\GQY视讯：2015年年度报告.xml'
+f = open(a.decode('utf8'))
+print f.read()
+</code></pre>
+
+<ul>
+<li>*<em>查找对象所有的属性和方法</em>
+</li>
+</ul>
+
+<pre><code>print dir(soup)
+</code></pre>
+
+<ul>
+<li><strong>读取指定行</strong></li>
+</ul>
+
+<pre><code>fp = open(r'E:\pythonWorkSpace\wangyiPosTrain_1.txt')
+for i, line in enumerate(fp):
+    if i &lt;=1000:
+        print line
+fp.close()
+</code></pre>
+
+<ul>
+<li>
+<strong>路径处理</strong>
+路径拆分</li>
+</ul>
+
+<pre><code>style_prefix,_ = os.path.splitext(os.path.basename('you.jpg'))
+</code></pre>
+
+<pre><code>dataset=r'chainer-fast-neuralstyle-master\sample_images'
+fs = os.listdir(dataset) # 查看路径下所有的文件
+imagepaths = []
+for fn in fs:
+    base, ext = os.path.splitext(fn)#路径拆分
+    if ext == '.jpg' or ext == '.png':
+        imagepath = os.path.join(dataset,fn)#连接路径名
+        imagepaths.append(imagepath)
+</code></pre>
+      </section>
+
+      <footer>
+        <span class="ribbon-outer">
+          <span class="ribbon-inner">
+            <p>this project by <a href="https://github.com/pyy1128">pyy1128</a> can be found on <a href="https://github.com/pyy1128/python-">GitHub</a></p>
+          </span>
+          <span class="left-tail"></span>
+          <span class="right-tail"></span>
+        </span>
+        <p>Generated with <a href="https://pages.github.com">GitHub Pages</a> using Merlot</p>
+        <span class="octocat"></span>
+      </footer>
+
+    </div>
+
+    
+  </body>
+</html>
